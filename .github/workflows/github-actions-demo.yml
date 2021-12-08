@@ -8,7 +8,9 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::570774169190:role/testoidc-Role-GC8CYKYF94G7
+          role-session-name: samplesession
           aws-region: us-west-2
+      - run: aws sts get-caller-identity --output table
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
