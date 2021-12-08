@@ -1,5 +1,8 @@
 name: GitHub Actions Demo
 on: [push, workflow_dispatch]
+permissions:
+  id-token: write
+  contents: read
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -8,7 +11,6 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::570774169190:role/testoidc-Role-GC8CYKYF94G7
-          role-session-name: samplesession
           aws-region: us-west-2
       - run: aws sts get-caller-identity --output table
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
