@@ -13,3 +13,4 @@ jobs:
           role-to-assume: arn:aws:iam::163705330298:role/test-Role-1KK9U7E79RQ41
           aws-region: us-west-2
       - run: aws sts get-caller-identity --output table
+      - run: aws --version
